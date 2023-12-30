@@ -1,58 +1,116 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import React, { useEffect } from 'react';
+import { createBrowserRouter , RouterProvider} from "react-router-dom";
+import {auth} from "./firebase"
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout, selectUser } from './features/UserSlice';
+import HomeScreen from './screens/HomeScreen';
+import LoginScreen from './LoginScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import SignUpScreen from './SignUpScreen';
+import SignInScreen from './SignInScreen';
 
-function App() {
+
+const router = createBrowserRouter([
+  {
+    
+    path: "/",
+    element: <HomeScreen></HomeScreen>,
+  },
+  {
+    path: "/login",
+    element: <LoginScreen></LoginScreen>
+  },
+  {
+    path: "/signup",
+    element: <SignUpScreen></SignUpScreen>
+  },
+  {
+    path: "/signin",
+    element: <SignInScreen></SignInScreen>
+  },
+  {
+    path: "/profile",
+    element: <ProfileScreen></ProfileScreen>
+  },
+  
+
+ ]);
+
+     function App() {
+
+      const dispatch = useDispatch();
+      const user = useSelector(selectUser);
+      // useEffect(()=>{
+
+      //     const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      //     if(userAuth){
+      //       //login
+      //       console.log(userAuth);
+      //       dispatch(
+      //         login({
+      //         uid:userAuth.uid,
+      //         email:userAuth.email,
+      //       })
+      //       );
+      //     }else{
+      //       // logout
+      //       dispatch(logout)
+      //     };
+      //   })
+      //   return unsubscribe;
+      // },[])
+      useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+          if (userAuth) { 
+            // login
+            console.log(userAuth);
+            dispatch(
+              login({
+                uid: userAuth.uid,
+                email: userAuth.email,
+              })
+            );
+          } else {
+            // logout
+            dispatch(logout());
+          }
+        });
+    
+        return unsubscribe;
+      }, [dispatch]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className='App'> 
+    <RouterProvider router={router}>
+    {user ? (
+          // User is logged in, render the HomeScreen
+          <HomeScreen />
+        ) : (
+          // User is not logged in, render the LoginScreen
+          <LoginScreen />
+        )}
+      </RouterProvider>
+    
     </div>
   );
 }
 
-export default App;
+export default App
+
+
+
+
+    // <Router>
+    //   {!user ? (
+    //     <LoginScreen />
+    //   ):(
+    //     <Route exact path="/"  element = {<HomeScreen></HomeScreen>} />
+    //   )
+    // }
+
+    //     <Routes>
+        
+    //   </Routes>
+    // </Router>

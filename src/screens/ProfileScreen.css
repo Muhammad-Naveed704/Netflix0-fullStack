@@ -1,0 +1,62 @@
+.ProfileScreen{
+    height: 100vh;
+    color: white;
+}
+.ProfileScreen_body{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3rem;
+    max-width:800px ;
+}
+.ProfileScreen_info{
+    display: flex;
+    
+}
+
+.ProfileScreen_info > img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -0.8rem;
+}
+.ProfileScreen_body > h1{
+    font-size: 60px;
+    font-weight: 400px;
+    border-bottom: 1px solid #282c2d;
+    margin-bottom: 20px;
+}
+.ProfileScreen_details{
+    color: white;
+    margin-left: 25px;
+    flex: 1;
+}
+
+.ProfileScreen_details > h2{
+    background-color: gray;
+    padding: 15px;
+    font-style: 15px;
+    padding-left: 20px;
+}
+.ProfileScreen_signOut{
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 5%;
+    width: 100%;
+    color: #fff;
+    background-color: #e50914;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+.ProfileScreen_plans > h3{
+    border-bottom: 1px solid #282c2d;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: auto;
+    /* width: 100%; */
+    /* border: 1px solid red; */
+}

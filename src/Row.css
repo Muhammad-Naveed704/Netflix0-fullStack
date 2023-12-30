@@ -1,0 +1,41 @@
+.row{
+    color: white;
+    margin-left: 20px;
+}
+.row_posters{
+    display: flex;
+    overflow-y:hidden ;
+    overflow-x: scroll;
+    padding: 20px;
+}
+.row_poster{
+    max-height: 100px;
+    margin-right: 10px;
+    object-fit: contain;
+ 
+    width: 100%;
+    transition: transform 450ms;
+    cursor: pointer;
+    
+}
+.row_poster:hover{
+    transform: scale(1.08);
+    opacity: 1;
+}
+.row_posters::-webkit-scrollbar{
+    display: none;
+}
+.row_posterLarge{
+    max-height: 250px;
+}
+.row_posterLarge:hover{
+    transform: scale(1.09);
+    opacity: 1;
+}
+.movieTitle_Name{
+    
+    font-size: 8px;
+    text-align: center;
+    cursor: pointer;
+    text-shadow: none;
+}

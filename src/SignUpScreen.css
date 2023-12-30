@@ -1,0 +1,80 @@
+.main{
+    height: 100vh;
+    background: url("https://www.filmibeat.com/img/2021/12/netflix11-1639468647.jpg?22122023204925");
+    background-size: cover;
+    object-fit: contain;
+    position: relative;
+    width: 100%;
+    /* padding-top: 5rem; */
+}
+.section{
+    padding-top: 5rem;
+}
+.signupScreen{
+    max-width: 300px;
+    padding: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0,0,0,0.85);
+    /* margin-top: -5rem; */
+    /* margin-top: 3rem; */
+    /* background-image: url(''); */
+    
+    
+}
+.signupScreen > form{
+/* margin-top: 6rem; */
+    display: grid;
+    /* border: 3px solid red; */
+    
+    flex-direction: column;
+}
+
+.signupScreen >form > h1{
+    /* border: 1px solid red; */
+    margin-bottom: 2.5rem;
+    color: #fff;
+    margin-top: -2rem;
+}
+.signupScreen > form > input{
+    outline-width:0 ;
+    margin-bottom: 14px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 15px;
+}
+
+.register_button{
+        padding: 16px 20px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #e50914;
+        border: none;
+        width: 100%;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 20px ;
+}
+.signupScreen_gray{
+    /* padding-top: 5rem; */
+    margin-top: 2rem;
+    /* border: 1px solid red; */
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+.signinScreen_link{
+    margin-left: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+}
+.signupScreen_link:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.goto_signup{
+    margin-top: 2rem;
+    text-align: center;
+
+}
